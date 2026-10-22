@@ -364,7 +364,7 @@ export default function App() {
           <div className="hero-kicker">
             <span />
             <p>
-              Full-stack software engineer
+              Software engineer
               <br />
               Frontend · Backend · Cloud
             </p>
@@ -378,7 +378,7 @@ export default function App() {
           </h1>
           <div className="hero-bottom">
             <p>
-              I’m a full-stack engineer. I build React and Next.js
+              I’m a software engineer. I build React and Next.js
               frontends, Python APIs on AWS, and dashboards that make data easy
               to read.
             </p>
