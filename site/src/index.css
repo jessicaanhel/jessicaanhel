@@ -68,6 +68,9 @@
   font: 500 13px 'DM Mono';
 }
 
+/* jessicaanhel is a GitHub handle, so the badge shows the GitHub mark */
+.brand .github-mark { width: 24px; height: 24px; }
+
 .nav-links {
   display: flex;
   align-items: center;
