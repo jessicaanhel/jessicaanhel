@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Renewable Energy Trading Dashboard · jessicaanhel</title>
+    <meta
+      name="description"
+      content="A dashboard for energy traders that shows wind and solar production per hour from five parks, with a FastAPI backend built for AWS Lambda and DynamoDB."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='%23fff' stroke='%23ccc' stroke-width='2'/%3E%3Cpath d='M5 22 L11 14 L17 18 L27 8' fill='none' stroke='%230000ff' stroke-width='3'/%3E%3Cpath d='M5 25 L12 24 L18 12 L27 22' fill='none' stroke='%23ffa500' stroke-width='3'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../../" aria-label="Back to jessicaanhel">← jessicaanhel</a>
+      <nav aria-label="Sections">
+        <a href="../../">All projects</a>
+        <a href="#inside">Inside</a>
+        <a href="#hour">One hour</a>
+        <a href="#decisions">Decisions</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- hero -->
+      <section class="hero">
+        <div class="wrap">
+          <p class="eyebrow"><span class="key wind"></span>Wind <span class="key solar"></span>Solar</p>
+          <h1>A trading dashboard for wind and solar production.</h1>
+          <p class="lead">
+            I built a dashboard where energy traders pick a date range and a park, and see the production per hour in a chart and a table. The
+            data comes from five parks, measured every fifteen minutes.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#inside">See what is inside</a>
+            <a class="button" href="#contact">Ask about a dashboard</a>
+          </div>
+        </div>
+        <figure class="wrap desktop-shot hero-shot">
+          <div class="browser">
+            <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="address">localhost / Trading Dashboard</span></span>
+            <img
+              src="assets/shots/desk-all.jpg"
+              width="1280"
+              height="1049"
+              alt="The dashboard for one week in June 2020, all parks: four summary cards, a line chart with wind in blue and solar in orange, and a table per hour"
+            />
+          </div>
+          <figcaption>One week in June 2020, all five parks, total per hour. Solar is the orange wave every day, wind is the blue line.</figcaption>
+        </figure>
+      </section>
+
+      <!-- inside -->
+      <section class="band" id="inside">
+        <div class="wrap two">
+          <div>
+            <h2>What it does</h2>
+            <p>
+              <strong>The page</strong> has four controls: a start date, an end date, a park and a volume type. Press <em>Load Data</em> and you
+              get four summary cards, a line chart and a table with one row per hour.
+            </p>
+            <p>
+              <strong>The API</strong> reads the raw fifteen-minute readings, keeps only the chosen park and dates, and groups them by hour. It
+              can give the average per hour or the total per hour, split into wind and solar.
+            </p>
+          </div>
+          <ul class="facts">
+            <li><strong>5</strong> parks: three wind, two solar</li>
+            <li><strong>15</strong> minutes between two readings</li>
+            <li><strong>177k</strong> readings in the sample data</li>
+          </ul>
+        </div>
+
+        <div class="wrap shots">
+          <figure class="desktop-shot">
+            <div class="browser">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img
+                loading="lazy"
+                src="assets/shots/desk-wind.jpg"
+                width="1280"
+                height="1049"
+                alt="Three days of the Netterden wind park, average per hour: only the blue wind line moves"
+              />
+            </div>
+            <figcaption><strong>One wind park.</strong> Netterden, three days in November, average per hour. The solar line stays at zero.</figcaption>
+          </figure>
+          <figure class="desktop-shot">
+            <div class="browser">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img
+                loading="lazy"
+                src="assets/shots/desk-solar.jpg"
+                width="1280"
+                height="1049"
+                alt="Three days of the Bemmel solar park in July: an orange curve for each day, flat at night"
+              />
+            </div>
+            <figcaption><strong>One solar park.</strong> Bemmel, three days in July. A cloudy day, a sunny day, and a day in between.</figcaption>
+          </figure>
+        </div>
+
+        <div class="wrap phones">
+          <div class="phones-copy">
+            <h3>On a phone</h3>
+            <p>
+              The controls and the cards wrap into one column. The chart keeps its height, and the table scrolls sideways when it does not fit.
+            </p>
+          </div>
+          <figure class="phone-card">
+            <div class="phone">
+              <img loading="lazy" src="assets/shots/phone-top.jpg" width="780" height="1688" alt="The dashboard on a phone: the controls and the summary cards in one column" />
+            </div>
+            <figcaption>Controls and summary cards.</figcaption>
+          </figure>
+          <figure class="phone-card">
+            <div class="phone">
+              <img loading="lazy" src="assets/shots/phone-chart.jpg" width="780" height="1688" alt="The chart and the start of the table on a phone" />
+            </div>
+            <figcaption>The chart, and the table below it.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- one hour demo -->
+      <section class="hour" id="hour">
+        <div class="wrap">
+          <h2>How one hour is made</h2>
+          <p class="section-note">
+            Each hour in the chart comes from four readings. Pick a park to see real readings from the sample data, and what the two volume
+            types make of them.
+          </p>
+
+          <div class="hour-demo">
+            <div class="park-picker" role="group" aria-label="Choose a park" id="park-picker"></div>
+            <div class="card hour-card">
+              <p class="hour-title" id="hour-title"></p>
+              <ol class="slots" id="slots"></ol>
+              <div class="results">
+                <div class="card result">
+                  <h4>Average per hour</h4>
+                  <p id="result-average"></p>
+                </div>
+                <div class="card result">
+                  <h4>Total per hour</h4>
+                  <p id="result-total"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section class="band decisions" id="decisions">
+        <div class="wrap">
+          <h2>Decisions I made</h2>
+          <dl class="rows">
+            <div>
+              <dt>One data source, two places to read from</dt>
+              <dd>
+                The service talks to a small interface. On my laptop it reads the CSV files, in AWS it reads DynamoDB. One environment variable
+                picks which one, so you can run the whole thing locally without a cloud account.
+              </dd>
+            </div>
+            <div>
+              <dt>Keep the raw readings, group them on request</dt>
+              <dd>
+                The fifteen-minute readings are stored as they are. The grouping by hour happens when the trader asks, so the same data can give an
+                average or a total without a second copy.
+              </dd>
+            </div>
+            <div>
+              <dt>Each park has its own time zone</dt>
+              <dd>
+                A small park list says the energy type and time zone of each park. The sync job saves the time in UTC, and the reader turns it back
+                into the park's local time.
+              </dd>
+            </div>
+            <div>
+              <dt>Keys that fit a date range</dt>
+              <dd>
+                In DynamoDB the key is the park plus the time of the reading. A date range for one park is one query, with paging, and not a scan
+                of the whole table.
+              </dd>
+            </div>
+            <div>
+              <dt>Small Lambdas with small rights</dt>
+              <dd>
+                The API function can only read the table. A second function runs every hour, copies the newest readings in, and can only write.
+                The API sits behind IAM, all described in one SAM template.
+              </dd>
+            </div>
+            <div>
+              <dt>Honest about what it is</dt>
+              <dd>
+                This was a coding challenge, not a live product. I kept the values as they come, also the small negative ones at night, and the
+                aggregation code has its own tests with a fake data source.
+              </dd>
+            </div>
+          </dl>
+          <p class="stack">
+            Built with Python 3.11, FastAPI and pytest; AWS Lambda, DynamoDB, S3 and SAM; Next.js, React, TypeScript and Chart.js.
+          </p>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <h2>Want something like this?</h2>
+          <p class="section-note">
+            A dashboard for your own time series: production, prices, sensors or sales. Send me a short note about your data and who needs to
+            read it, and we talk.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="mailto:ro.project2020@gmail.com?subject=A%20dashboard%20like%20the%20trading%20dashboard">Write to me</a>
+            <a class="button" href="../../">See other projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Made by jessicaanhel.</p>
+      <p><a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a></p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

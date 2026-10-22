@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northline Digital · jessicaanhel</title>
+    <meta
+      name="description"
+      content="A five-page marketing website for a small web studio: clear packages, concept projects and a simple contact form. Built with React, TypeScript, Vite and Tailwind."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101B33'/%3E%3Cpath d='M18 44V20H24.5L40 38.5V20H46V44H39.5L24 25.5V44H18Z' fill='%23EEF2FA'/%3E%3Crect x='18' y='47' width='28' height='3' rx='1.5' fill='%233B6FED'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-inner">
+        <a class="brand" href="../../">← jessicaanhel</a>
+        <nav aria-label="Sections">
+          <a class="section-link" href="#inside">Inside</a>
+          <a class="section-link" href="#decisions">Decisions</a>
+          <a class="section-link" href="#contact">Contact</a>
+          <a class="nav-cta" href="../../">All projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="pill">Marketing website</p>
+            <h1>Northline Digital: a clear website for a small web studio.</h1>
+            <p class="lead">
+              Northline Digital makes websites, brands and marketing for local businesses. I built its own site: five pages that show the
+              packages, the prices and how the work goes, so a plumber or a salon owner can decide fast.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#inside">See what is inside</a>
+              <a class="button ghost" href="#contact">Ask me about it</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="address">northlinedigital.com</span>
+              </div>
+              <img src="assets/shots/desktop-packages.jpg" width="1280" height="782" alt="" />
+            </div>
+            <div class="phone hero-phone"><img src="assets/shots/phone-work.jpg" width="780" height="1688" alt="" /></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- short facts -->
+      <section class="facts-band">
+        <div class="container facts">
+          <div><strong>5</strong><span>pages: Home, Services, Work, About, Contact</span></div>
+          <div><strong>3</strong><span>packages with a price range on each</span></div>
+          <div><strong>0</strong><span>servers to run: it is a static site</span></div>
+        </div>
+      </section>
+
+      <!-- inside: desktop -->
+      <section class="section" id="inside">
+        <div class="container">
+          <p class="eyebrow">What is inside</p>
+          <h2>The pages a small studio needs, and nothing more</h2>
+          <p class="section-note">
+            The studio is new, so the site has to be honest and easy to scan. Most pages end with the same next step: get a quote.
+          </p>
+
+          <div class="shots">
+            <figure class="shot">
+              <div class="browser">
+                <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="address">/ · Packages</span></div>
+                <img loading="lazy" src="assets/shots/desktop-packages.jpg" width="1280" height="782" alt="Three package cards: Starter, Growth in a dark card marked Most popular, and Full-Service, each with a price range and a list of features" />
+              </div>
+              <figcaption><strong>Packages.</strong> Three cards with a price range, what is included and who it is for. The middle one is marked as most popular.</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="browser">
+                <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="address">/work</span></div>
+                <img loading="lazy" src="assets/shots/desktop-work.jpg" width="1280" height="889" alt="The Work page with concept projects for a plumbing company and a hair salon, each with challenge, solution and result" />
+              </div>
+              <figcaption><strong>Work.</strong> There are no clients yet, so these are concept projects. Each card is labelled "Concept project" and shows the challenge, the solution and the result.</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="browser">
+                <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="address">/ · Sample work</span></div>
+                <img loading="lazy" src="assets/shots/desktop-sample-cta.jpg" width="1280" height="1004" alt="Two sample project cards on the home page, above a dark blue band that says Ready to grow your business online, with a Get a quote button" />
+              </div>
+              <figcaption><strong>Home, lower half.</strong> Two concept projects, then a dark band with one button. Most pages end like this.</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="browser">
+                <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="address">/contact</span></div>
+                <img loading="lazy" src="assets/shots/desktop-contact.jpg" width="1280" height="835" alt="The Contact page with direct contact details on the left and a short form on the right" />
+              </div>
+              <figcaption><strong>Contact.</strong> Email, location and response time on the left. A four-field form on the right.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- inside: phone -->
+      <section class="section surface">
+        <div class="container strip-head">
+          <div>
+            <p class="eyebrow">On a phone</p>
+            <h2>The same site on a phone</h2>
+            <p class="section-note">Local customers often search on a phone, so every page works in one column at 390px. The menu folds into a button.</p>
+          </div>
+          <div class="strip-controls">
+            <button type="button" class="round" id="strip-prev" aria-label="Previous screens">←</button>
+            <button type="button" class="round" id="strip-next" aria-label="Next screens">→</button>
+          </div>
+        </div>
+        <div class="strip" id="strip" tabindex="0" role="list" aria-label="Phone screenshots">
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-work.jpg" width="780" height="1688" alt="The Work page on a phone, with the header and the first concept project" /></div>
+            <figcaption><strong>Work.</strong> The menu becomes a button at the top right.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-packages.jpg" width="780" height="1688" alt="The packages section on a phone, starting with the Starter card" /></div>
+            <figcaption><strong>Packages.</strong> The cards stack, cheapest first.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-growth.jpg" width="780" height="1688" alt="The Growth package in a dark blue card with a blue Start a project button" /></div>
+            <figcaption><strong>Most popular.</strong> One flag in the data turns a card dark.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-process.jpg" width="780" height="1630" alt="Four numbered steps: discovery call, proposal and quote, design and build, launch and support" /></div>
+            <figcaption><strong>How it works.</strong> Four steps from the first call to launch.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-sample-work.jpg" width="780" height="1688" alt="The sample work section on the home page with a concept project for a plumbing company" /></div>
+            <figcaption><strong>Sample work.</strong> Short cards that are easy to scroll.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-contact.jpg" width="780" height="1688" alt="The Contact page on a phone with email, location and response time" /></div>
+            <figcaption><strong>Contact.</strong> Details first, then the form.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section class="section" id="decisions">
+        <div class="container">
+          <p class="eyebrow">Decisions I made</p>
+          <h2>Small choices that keep it simple</h2>
+          <dl class="rows">
+            <div>
+              <dt>Prices and projects live in data files</dt>
+              <dd>
+                The packages, extras, questions and concept projects are plain lists in <code>src/data</code>. The Home page shows the first
+                two projects, the Work page shows all of them. Changing a price means changing one line, not a component.
+              </dd>
+            </div>
+            <div>
+              <dt>Honest about being new</dt>
+              <dd>
+                There are no client case studies yet, and the site says so. Every sample card has a "Concept project" label, and the prices
+                are marked as ranges that are agreed before work starts.
+              </dd>
+            </div>
+            <div>
+              <dt>A contact form without a server</dt>
+              <dd>
+                The form opens the visitor's email app with the name, business and message already filled in. If nothing opens, a line under
+                the button shows the email address. No backend, nothing to keep running.
+              </dd>
+            </div>
+            <div>
+              <dt>Search basics on every page</dt>
+              <dd>
+                A small component sets the title, description, canonical link and social sharing tags when the page changes. The Services
+                page also builds FAQ structured data from the same list of questions it shows. There is a sitemap and a robots.txt.
+              </dd>
+            </div>
+            <div>
+              <dt>One place for colours and fonts</dt>
+              <dd>
+                Navy, one blue accent, a light grey surface and two fonts (Manrope for headings, Inter for text) are set once in the Tailwind
+                theme. Buttons have three styles, all fully round, so every page looks like the same studio.
+              </dd>
+            </div>
+            <div>
+              <dt>One clear action</dt>
+              <dd>
+                "Get a quote" sits in the header and at the end of each page. On a phone it moves into the folded menu, so it is never more
+                than one tap away.
+              </dd>
+            </div>
+          </dl>
+          <p class="stack">Built with React, TypeScript, Vite, Tailwind CSS v4 and React Router. The build is a set of static files.</p>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="cta" id="contact">
+        <div class="container cta-inner">
+          <h2>Want something like this?</h2>
+          <p>
+            A clear site for your studio, shop or practice: a few pages, honest prices and one way to get in touch. Tell me about your
+            business and I will tell you what I would build.
+          </p>
+          <a class="button primary" href="mailto:ro.project2020@gmail.com?subject=A%20website%20like%20Northline%20Digital">Write to me</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="container foot-inner">
+        <p>Made by jessicaanhel.</p>
+        <p><a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a></p>
+      </div>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

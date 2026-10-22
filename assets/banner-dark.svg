@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" role="img" aria-label="jessicaanhel, full-stack software engineer">
+  <style>
+    /* Only the dot moves: everything else is visible even where the animation does not play */
+    .dot { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.6); opacity: .5; } }
+    @media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+  </style>
+  <rect width="1280" height="440" rx="28" fill="#1c1c1a"/>
+  <circle cx="76" cy="70" r="24" fill="#f2f0e9"/>
+  <text x="76" y="75" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="500" fill="#1c1c1a">JA</text>
+  <text x="114" y="77" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#f2f0e9" letter-spacing="-0.4">jessicaanhel</text>
+  <circle class="dot" cx="856" cy="62" r="4" fill="#d8ff47"/>
+  <text x="874" y="66" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#f2f0e9" letter-spacing="1.6">FULL-STACK SOFTWARE ENGINEER</text>
+  <text x="874" y="86" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9a9a92" letter-spacing="1.6">FRONTEND · BACKEND · CLOUD</text>
+  <line x1="52" y1="114" x2="1228" y2="114" stroke="#f2f0e9" stroke-opacity=".16"/>
+  <text x="48" y="214" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="80" font-weight="500" fill="#f2f0e9" letter-spacing="-4">I design &amp; build</text>
+  <text x="48" y="292" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="80" fill="#f2f0e9" letter-spacing="-3">digital products</text>
+  <text x="48" y="370" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="80" font-weight="500" fill="#f2f0e9" letter-spacing="-4">that feel</text>
+  <rect x="334" y="381" width="334" height="9" fill="#d8ff47" transform="rotate(-1.2 334 385)"/>
+  <text x="330" y="370" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="80" font-weight="500" fill="#f2f0e9" letter-spacing="-4">effortless.</text>
+  <text x="1228" y="330" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" fill="#9a9a92">React · Next.js · Python · AWS</text>
+  <circle cx="1192" cy="378" r="30" fill="none" stroke="#f2f0e9"/>
+  <path d="M1182 378h20M1194 370l8 8-8 8" fill="none" stroke="#f2f0e9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
