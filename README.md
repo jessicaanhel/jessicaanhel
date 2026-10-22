@@ -13,7 +13,7 @@
 
 ### About
 
-Full-stack software engineer. I build React and Next.js frontends, Python APIs on AWS,
+Software engineer. I build React and Next.js frontends, Python APIs on AWS,
 and dashboards that make data easy to read. I like working on both sides of the screen:
 the interface people touch, and the API, data and deployment behind it.
 
