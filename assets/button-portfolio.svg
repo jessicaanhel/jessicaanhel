@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" role="img" aria-label="VIEW PORTFOLIO">
+  <rect width="220" height="48" rx="6" fill="#d8ff47"/>
+  <text x="22" y="29" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="500" letter-spacing="1.4" fill="#1c1c1a">VIEW PORTFOLIO</text>
+  <path d="M186 24h14M194 17l7 7-7 7" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

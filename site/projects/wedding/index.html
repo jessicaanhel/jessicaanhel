@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wedding site &amp; planning panel · jessicaanhel</title>
+    <meta
+      name="description"
+      content="A wedding invitation website and a private planning panel for the couple and their helpers, built by jessicaanhel for her own wedding. Ask about reusing it."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23344134'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23c9a45c' stroke-width='2'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../../" aria-label="Back to jessicaanhel">← jessicaanhel</a>
+      <nav aria-label="Sections">
+        <a href="../../">All projects</a>
+        <a href="#inside">Inside</a>
+        <a href="#roles">Roles</a>
+        <a href="#decisions">Decisions</a>
+        <a class="nav-cta" href="#reuse">Reuse it</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>Our wedding website, and the planning panel behind it.</h1>
+          <p class="lead">
+            I built both for our own wedding in Tuscany: a phone-first invitation for the guests, and a private panel where the couple and
+            their helpers plan the day. Here is what is inside, and how you can reuse it.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#inside">See what is inside</a>
+            <a class="button" href="#reuse">Ask about reusing it</a>
+            <a class="button ghost" id="live-link" href="#" hidden>Open the live site</a>
+          </div>
+        </div>
+        <div class="hero-phones" aria-hidden="true">
+          <div class="phone back"><img src="assets/shots/site-1.jpg" width="780" height="1688" alt="" /></div>
+          <div class="phone front"><img src="assets/shots/panel-overview.jpg" width="780" height="1688" alt="" /></div>
+        </div>
+      </section>
+
+      <!-- two products -->
+      <section class="band" id="inside">
+        <div class="wrap two">
+          <div>
+            <h2>Two products, one project</h2>
+            <p>
+              <strong>The invitation</strong> is what the guests see: an envelope that opens, our story, the schedule, the map, where to stay and
+              an RSVP form. It is in English and Ukrainian, and it is a phone-width column on any screen.
+            </p>
+            <p>
+              <strong>The panel</strong> is what we use to plan. It has tasks, budget, vendors, guests, inspiration boards, and a private board
+              for each team. Everyone logs in with their own account and sees only what their role allows.
+            </p>
+          </div>
+          <ul class="facts">
+            <li><strong>2</strong> languages on the invitation</li>
+            <li><strong>5</strong> roles in the panel</li>
+            <li><strong>0</strong> database servers: the data lives in Google Sheets</li>
+          </ul>
+        </div>
+
+        <div class="strip" role="list" aria-label="The invitation on a phone">
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/site-1.jpg" width="780" height="1688" alt="The invitation: a watercolour of Villa Colletto and the names Angela and Simon" /></div>
+            <figcaption>The first screen: the villa, painted for us.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/site-3.jpg" width="780" height="1688" alt="Photos of the couple in oval frames with tulips" /></div>
+            <figcaption>Our story, with photos in hand-drawn frames.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/site-5.jpg" width="780" height="1688" alt="An old-style map and the where to stay section" /></div>
+            <figcaption>The map, and where to stay.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- panel tour -->
+      <section class="tour-section">
+        <div class="wrap">
+          <h2>A look inside the panel</h2>
+          <p class="section-note">Screenshots with demo guests and costs. It is built phone first, because that is where we use it most.</p>
+        </div>
+        <div class="tour-controls wrap">
+          <button type="button" class="round" id="tour-prev" aria-label="Previous screen">←</button>
+          <button type="button" class="round" id="tour-next" aria-label="Next screen">→</button>
+        </div>
+        <div class="tour" id="tour" tabindex="0" role="list" aria-label="Panel screenshots">
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-overview.jpg" width="780" height="1688" alt="The panel overview with the wedding countdown" /></div>
+            <figcaption><strong>Overview.</strong> Countdown, planning progress, budget paid and who has confirmed.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-tasks-short.jpg" width="780" height="1688" alt="A short list of upcoming tasks with stars for the important ones" /></div>
+            <figcaption><strong>Tasks.</strong> The Overview shows only the next few, with a button for more. A star marks what is important.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-calendar.jpg" width="780" height="1688" alt="A calendar with red round numbers on the days when important tasks are due" /></div>
+            <figcaption><strong>Calendar.</strong> A red number on a day means that many important tasks are due then.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-budget-guests.jpg" width="780" height="1688" alt="The budget page with the number of guests, totals and a pyramid chart" /></div>
+            <figcaption><strong>Budget.</strong> The totals, and a pyramid of where the money goes. The number of guests is set at the top.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-budget-perperson.jpg" width="780" height="1688" alt="Budget items priced per person, multiplied by the number of guests" /></div>
+            <figcaption><strong>Price per person.</strong> Type a price per guest and the total follows the number of guests. Or type the total yourself.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-budget-links.jpg" width="780" height="1688" alt="Budget items with links to the shops where to buy them" /></div>
+            <figcaption><strong>Where to buy.</strong> A few shop links on each item, so nobody has to search again.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-guests.jpg" width="780" height="1688" alt="The guest list grouped by side with language tags" /></div>
+            <figcaption><strong>Guests.</strong> Grouped by side, filtered by language, country or table. The status comes from the RSVP form, nobody types it.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-board.jpg" width="780" height="1688" alt="A private board with links, tickets and files sorted by category" /></div>
+            <figcaption><strong>Team board.</strong> Flight tickets, Google Docs, a Figma mind board, to-dos and notes, sorted by category.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-menu.jpg" width="780" height="1688" alt="The account menu with My information, Accounts, Permissions, Trash and Log out" /></div>
+            <figcaption><strong>Account menu.</strong> Accounts, permissions and the trash live under the avatar, so the main menu stays about the wedding.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/panel-groom-board.jpg" width="780" height="1688" alt="The Groom Board with the same layout and different content" /></div>
+            <figcaption><strong>The Groom Board.</strong> The same board with its own content. The bride cannot open it: it is a surprise.</figcaption>
+          </figure>
+        </div>
+</section>
+
+      <!-- little things -->
+      <section class="band small-things">
+        <div class="wrap">
+          <h2>Small things we needed along the way</h2>
+          <dl class="rows">
+            <div>
+              <dt>Important tasks in the calendar</dt>
+              <dd>A star on a task is enough. Its deadline gets a red number in the calendar, and the number counts how many important things are due that day.</dd>
+            </div>
+            <div>
+              <dt>Prices per person</dt>
+              <dd>Catering is not one price, it is a price times the guests. Set the number of guests once at the top and every per-person item follows it, also when the guest list changes.</dd>
+            </div>
+            <div>
+              <dt>A short list on the first screen</dt>
+              <dd>The Overview shows the next five tasks and a button for five more. The Tasks page shows the next three months, always with the overdue ones, in pages.</dd>
+            </div>
+            <div>
+              <dt>A panel you can hide</dt>
+              <dd>The calendar and history sit on the right on a computer and can be hidden. On a phone they move to the Overview.</dd>
+            </div>
+          </dl>
+          <figure class="desktop-shot light">
+            <div class="browser">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img loading="lazy" src="assets/shots/desktop-overview.jpg" width="2160" height="1350" alt="The panel on a computer: menu on the left, overview in the middle, calendar and history on the right" />
+            </div>
+            <figcaption>On a computer: the menu on the left, the calendar and history on the right.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- roles demo -->
+      <section class="roles" id="roles">
+        <div class="wrap">
+          <h2>Log in as…</h2>
+          <p class="section-note">
+            Each role sees a different panel. Pick one to see its menu. This is the real default setup; the site admin can change it on the
+            Permissions page.
+          </p>
+
+          <div class="roles-demo">
+            <div class="role-picker" role="group" aria-label="Choose a role" id="role-picker"></div>
+            <div class="role-view">
+              <div class="role-menu" id="role-menu" aria-live="polite"></div>
+              <div class="role-info">
+                <p class="role-story" id="role-story"></p>
+                <h3>Can also</h3>
+                <ul class="can-list" id="role-actions"></ul>
+              </div>
+            </div>
+          </div>
+
+          <figure class="desktop-shot">
+            <div class="browser">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img loading="lazy" src="assets/shots/desktop-permissions.jpg" width="2160" height="1350" alt="The Permissions page: roles in columns, tabs and actions in rows, with checkboxes" />
+            </div>
+            <figcaption>
+              The Permissions page, on a computer. Roles in columns, tabs and actions in rows. The bride ticks a box and it applies at once. The
+              server checks the same rules on every request, so hiding a button is never the only protection.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section class="band decisions" id="decisions">
+        <div class="wrap">
+          <h2>Decisions I made</h2>
+          <dl class="rows">
+            <div>
+              <dt>The text is not in the code</dt>
+              <dd>
+                Words, dates and photos live in two content files. Making this site for another couple means changing text, not components.
+              </dd>
+            </div>
+            <div>
+              <dt>A phone-width column on every screen</dt>
+              <dd>The layout uses container queries, so the invitation looks like a phone also on a laptop, and nothing gets lost in a wide window.</dd>
+            </div>
+            <div>
+              <dt>Google Sheets as the database</dt>
+              <dd>
+                The couple can open the data and fix a row by hand. New columns are only added at the end, so old and new code can run together
+                during a deploy without breaking the sheet.
+              </dd>
+            </div>
+            <div>
+              <dt>One list of rules for who can do what</dt>
+              <dd>
+                The menu and the server read the same permission keys. A role that cannot open a tab gets a 403 from the API, not just a hidden
+                button.
+              </dd>
+            </div>
+            <div>
+              <dt>A board the site admin cannot open</dt>
+              <dd>
+                Permissions are the bride's to change, except one. The Groom Board is excluded on purpose, and it is not even on the Permissions
+                page. A surprise has to survive the person who runs the site.
+              </dd>
+            </div>
+            <div>
+              <dt>Shared lists that feel instant</dt>
+              <dd>
+                Changes show at once and are confirmed by the server. Lists refresh by themselves, removed items wait seven days in a trash, and
+                "are you sure" questions are in the page, not browser pop-ups.
+              </dd>
+            </div>
+            <div>
+              <dt>Honest about what it cannot do</dt>
+              <dd>
+                Files are links (Drive, Dropbox), because a sheet cell cannot hold a file. A note can be sent to Apple Notes as a copy, and I call
+                it a copy, not a sync.
+              </dd>
+            </div>
+          </dl>
+          <p class="stack">Built with Next.js, TypeScript, Google Sheets and Google's API. Passwords are hashed, sessions are signed cookies.</p>
+        </div>
+      </section>
+
+      <!-- reuse -->
+      <section class="reuse" id="reuse">
+        <div class="wrap">
+          <h2>Want it for your wedding?</h2>
+          <p class="section-note">
+            If you like what you see, there are three ways to reuse it. None of them starts with a price list: write to me and we talk.
+          </p>
+          <ul class="options">
+            <li>
+              <h3>I personalise it for you</h3>
+              <p>Your names, date and venue, your languages, colours and photos. You get the invitation and a panel for your own team.</p>
+            </li>
+            <li>
+              <h3>You ask for the code</h3>
+              <p>The code is private. Tell me what you want to do with it and we agree on terms before I share anything.</p>
+            </li>
+            <li>
+              <h3>You just have a question</h3>
+              <p>Want to see the panel live, or take one idea for your own site? Ask, I am happy to explain how it works.</p>
+            </li>
+          </ul>
+          <div class="actions">
+            <a class="button primary" href="mailto:ro.project2020@gmail.com?subject=Your%20wedding%20website%20and%20panel">Write to me</a>
+            <a class="button" href="https://github.com/jessicaanhel" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Made by jessicaanhel, for a wedding on 12 June 2027 in Tuscany. <a href="../../">See my other projects</a>.</p>
+      <p><a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a></p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

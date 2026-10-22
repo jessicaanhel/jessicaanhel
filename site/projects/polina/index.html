@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Polina Berlin · jessicaanhel</title>
+    <meta
+      name="description"
+      content="A one-page website for Polina, a life manager and identity strategist in Berlin. Static HTML and CSS, light and dark themes, built by jessicaanhel."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.5' fill='%23F6F1E7' stroke='%231B171B'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-style='italic' font-size='18' text-anchor='middle' fill='%237C2436'%3EP%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="../../">← jessicaanhel</a>
+        <nav aria-label="Sections">
+          <a class="hide-sm" href="#inside">Inside</a>
+          <a class="hide-sm" href="#decisions">Decisions</a>
+          <a class="hide-sm" href="#contact">Contact</a>
+          <a class="btn btn-ghost btn-small" href="../../">All projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="kicker mono">Case study · one-page website</p>
+            <h1>A quiet, one-page website for a life manager <em class="accent">in Berlin.</em></h1>
+            <p class="lead">
+              Polina helps people with identity, presence and personal direction. I built her site: one page that explains what she does,
+              how you can work with her, and how to write to her. It is plain HTML and CSS, with a light and a dark theme.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#inside">See the page</a>
+              <a class="btn btn-ghost" href="#contact">Want something like this?</a>
+            </div>
+          </div>
+          <figure class="hero-shot">
+            <div class="browser">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url mono">polina-berlin.com</span></span>
+              <img src="assets/shots/desktop-hero.jpg" width="1280" height="800" alt="Polina's website on a computer: a large serif headline and a round seal with the letter P" />
+            </div>
+            <div class="phone hero-phone" aria-hidden="true">
+              <img src="assets/shots/phone-hero-dark.jpg" width="780" height="1688" alt="" />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- what is inside -->
+      <section id="inside">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>What is on the page</h2>
+            <p>
+              Five parts, top to bottom: the promise, what makes her different, the topics she works on, the three ways to work with her, and
+              a short about. It ends with one clear next step: write an email.
+            </p>
+          </div>
+
+          <figure class="browser-figure">
+            <div class="browser">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url mono">#work</span></span>
+              <img loading="lazy" src="assets/shots/desktop-work.jpg" width="1280" height="889" alt="A list of eight topics, each with a short line of explanation, separated by thin rules" />
+            </div>
+            <figcaption><span class="mono">01</span> Where the work starts. Eight topics as rows, not cards. A name on the left, one sentence on the right.</figcaption>
+          </figure>
+
+          <figure class="browser-figure">
+            <div class="browser">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url mono">#together</span></span>
+              <img loading="lazy" src="assets/shots/desktop-together.jpg" width="1280" height="711" alt="Three ways to work together: online webinars, sessions and long-term collaboration" />
+            </div>
+            <figcaption>
+              <span class="mono">02</span> Ways to work together. It reads like a ledger: the format, what it is, and a small note in a
+              typewriter font.
+            </figcaption>
+          </figure>
+
+          <figure class="browser-figure">
+            <div class="browser">
+              <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url mono">#about</span></span>
+              <img loading="lazy" src="assets/shots/desktop-about.jpg" width="1280" height="817" alt="The about section with a quote, and a dark footer with a button to write to Polina" />
+            </div>
+            <figcaption><span class="mono">03</span> About, a quote, and the dark footer with one button: write to Polina.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- phone -->
+      <section class="on-phone">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>On a phone</h2>
+            <p>The rows stack into one column and the menu goes away. The brand and the booking button stay at the top.</p>
+          </div>
+        </div>
+        <div class="strip" role="list" aria-label="The website on a phone">
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-hero.jpg" width="780" height="1688" alt="The first screen on a phone: headline and two buttons" /></div>
+            <figcaption>The first screen.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-work.jpg" width="780" height="1688" alt="The topics on a phone, one under the other" /></div>
+            <figcaption>Topics, one under the other.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-together.jpg" width="780" height="1688" alt="The three ways to work together on a phone" /></div>
+            <figcaption>The three formats.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/phone-footer.jpg" width="780" height="1688" alt="The quote and the dark footer on a phone" /></div>
+            <figcaption>The quote and the way to get in touch.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- dark mode -->
+      <section class="themes">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Light and dark</h2>
+            <p>
+              The page follows the visitor's system setting. In the dark, the paper turns into a deep plum and the wine red gets lighter, so it
+              is still easy to read.
+            </p>
+          </div>
+          <div class="theme-pair">
+            <figure>
+              <div class="browser">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/desktop-hero.jpg" width="1280" height="800" alt="The first screen in the light theme" />
+              </div>
+              <figcaption class="mono">Light</figcaption>
+            </figure>
+            <figure>
+              <div class="browser">
+                <span class="bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/desktop-hero-dark.jpg" width="1280" height="800" alt="The first screen in the dark theme" />
+              </div>
+              <figcaption class="mono">Dark</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section id="decisions">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Decisions I made</h2>
+          </div>
+          <div class="rows">
+            <div class="row">
+              <div class="row-name">One file, no build</div>
+              <div class="row-desc">
+                The whole site is one HTML file with the CSS inside it. There is no JavaScript and no framework. It loads fast and any static
+                host can serve it.
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-name">A brand, not a coaching site</div>
+              <div class="row-desc">
+                Polina says she is not a coach and not a therapist. So no soft gradients or stock photos: a cream paper colour, a wine red, a
+                serif for headlines and a typewriter font for small notes.
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-name">Rows instead of cards</div>
+              <div class="row-desc">
+                Topics and formats sit in rows with thin lines between them, like a list in a notebook. On small screens each row becomes one
+                column.
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-name">A seal instead of a logo</div>
+              <div class="row-desc">
+                The round mark is drawn in SVG, with her name and words set along a circle. It turns very slowly. If the visitor asks for less
+                motion, it stands still, and so does the fade-in of the first screen.
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-name">Colours as variables</div>
+              <div class="row-desc">
+                All colours live in a few CSS variables. The dark theme only changes those values, so there is one set of styles to maintain.
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-name">Search basics in place</div>
+              <div class="row-desc">
+                A clear title and description, a canonical link, social preview tags, a robots.txt and a sitemap. Structured data describes
+                Polina as a person and lists her three services.
+              </div>
+            </div>
+          </div>
+          <p class="stack mono">Built with HTML, CSS and inline SVG. Fonts: Instrument Serif, IBM Plex Sans, IBM Plex Mono.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="wrap">
+        <h2>Want something like this?</h2>
+        <p class="foot-sub">
+          A calm one-page site for your practice or your own name: your words, your colours, nothing you do not need. Write to me and we talk.
+        </p>
+        <div class="foot-row">
+          <a class="btn btn-primary" href="mailto:ro.project2020@gmail.com?subject=A%20website%20like%20Polina%27s">Write to me</a>
+          <div class="foot-meta">
+            <span>Made by jessicaanhel.</span>
+            <a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a>
+            <a href="../../">See all projects</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

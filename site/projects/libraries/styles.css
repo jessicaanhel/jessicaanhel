@@ -1,0 +1,619 @@
+/* Colours come from the library's own fallbacks (--paper, --accent, --ink-soft)
+   and from the floral frame (sage leaves, pale pink petals). */
+:root {
+  --paper: #fbf5ea;
+  --paper-deep: #f3eadb;
+  --card: #fffcf6;
+  --ink: #3d3a33;
+  --ink-soft: #837e70;
+  --gold: #b08d4f;
+  --gold-deep: #8f713c;
+  --sage: #7f9a78;
+  --petal: #f2dde0;
+  --code-bg: #2f2c27;
+  --code-ink: #f1e9da;
+  --line: #e6dcc9;
+  --radius: 10px;
+  --gutter: 20px;
+  --page: 1100px;
+  --edge: max(var(--gutter), calc((100vw - var(--page)) / 2 + var(--gutter)));
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+h1 {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 5.4vw, 3.1rem);
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.6vw, 2.9rem);
+}
+
+h3 {
+  font-size: 1.9rem;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  padding: 0.1em 0.35em;
+  border-radius: 5px;
+  background: var(--paper-deep);
+  color: var(--gold-deep);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---- top bar ---- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px var(--edge);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.top nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.top nav a {
+  padding: 7px 11px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.top nav a:hover {
+  color: var(--ink);
+}
+
+.top nav .nav-cta {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 640px) {
+  .top nav a.in-page {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .brand {
+    font-size: 0.92rem;
+  }
+
+  .top nav a {
+    padding: 7px 8px;
+  }
+}
+
+/* ---- buttons ---- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.96rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+  background: var(--paper-deep);
+}
+
+.button.primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: var(--gold-deep);
+  border-color: var(--gold-deep);
+}
+
+/* ---- code blocks ---- */
+.code-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--code-ink) 60%, transparent);
+  background: #3a3630;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.copy {
+  padding: 3px 10px;
+  border: 1px solid color-mix(in srgb, var(--code-ink) 25%, transparent);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--code-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.copy:hover {
+  border-color: var(--gold);
+}
+
+pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  background: var(--code-bg);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  color: var(--code-ink);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+pre .c {
+  color: #9b927f;
+}
+
+pre .k {
+  color: #d9b878;
+}
+
+pre .v {
+  color: #e7a9b3;
+}
+
+.code,
+.install {
+  min-width: 0;
+}
+
+/* ---- phone frame ---- */
+.phone {
+  width: var(--w, 240px);
+  padding: 6px;
+  border-radius: 36px;
+  background: var(--ink);
+  box-shadow: 0 24px 50px -24px rgba(61, 58, 51, 0.55);
+}
+
+.phone img {
+  width: 100%;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  border-radius: 30px;
+  background: var(--paper);
+}
+
+/* ---- hero ---- */
+.hero {
+  display: grid;
+  gap: 44px;
+  align-items: center;
+  padding: 56px var(--edge) 72px;
+  background: radial-gradient(55% 50% at 88% 8%, color-mix(in srgb, var(--petal) 80%, transparent), transparent 70%),
+    radial-gradient(45% 45% at 70% 90%, color-mix(in srgb, var(--gold) 18%, transparent), transparent 70%), var(--paper);
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.eyebrow .mono {
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  border-radius: 999px;
+}
+
+.hero .lead {
+  margin-top: 20px;
+  font-size: 1.12rem;
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+.install {
+  margin-top: 26px;
+  max-width: 520px;
+}
+
+.hero-phones {
+  position: relative;
+  height: 470px;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-phones .phone {
+  --w: 215px;
+  position: absolute;
+}
+
+.hero-phones .back {
+  left: 0;
+  top: 24px;
+  transform: rotate(-5deg);
+}
+
+.hero-phones .front {
+  right: 0;
+  top: 0;
+  transform: rotate(4deg);
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: 1.2fr 1fr;
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+
+  .hero-phones {
+    height: 560px;
+    max-width: none;
+  }
+
+  .hero-phones .phone {
+    --w: 260px;
+  }
+}
+
+/* ---- bands ---- */
+.band {
+  padding: 72px 0;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.two {
+  display: grid;
+  gap: 32px;
+}
+
+.two > * {
+  min-width: 0;
+}
+
+.two p {
+  margin-top: 16px;
+}
+
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  align-content: start;
+  border-top: 1px solid var(--line);
+}
+
+.facts li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: baseline;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.facts strong {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+@media (min-width: 820px) {
+  .two {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+.section-note {
+  margin-top: 14px;
+  color: var(--ink-soft);
+}
+
+/* ---- component cards ---- */
+.components {
+  padding: 80px 0;
+}
+
+.card {
+  display: grid;
+  gap: 32px;
+  margin-top: 40px;
+  padding: 28px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) * 1.6);
+}
+
+.card > * {
+  min-width: 0;
+}
+
+.card .tag {
+  margin-bottom: 8px;
+  color: var(--sage);
+  overflow-wrap: anywhere;
+}
+
+.card h3 {
+  margin-bottom: 14px;
+}
+
+.card p {
+  color: color-mix(in srgb, var(--ink) 85%, var(--ink-soft));
+}
+
+.needs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+.needs li {
+  padding: 2px 10px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+}
+
+.card-shots {
+  margin: 0;
+}
+
+.card-shots .phone {
+  --w: 230px;
+}
+
+.card-shots figcaption {
+  margin-top: 14px;
+  max-width: 240px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.card-shots.strip {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-shots.strip figure {
+  flex: 0 0 auto;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.card.tool {
+  background: linear-gradient(180deg, var(--card), color-mix(in srgb, var(--petal) 35%, var(--card)));
+}
+
+@media (min-width: 900px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 48px;
+    padding: 40px;
+  }
+
+  .card-shots.strip {
+    max-width: 520px;
+  }
+
+  .card.tool {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---- decisions ---- */
+.decisions {
+  padding: 84px 0;
+}
+
+.rows {
+  margin: 36px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.rows > div {
+  display: grid;
+  gap: 8px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.rows dt {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.rows dd {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+
+@media (min-width: 820px) {
+  .rows > div {
+    grid-template-columns: minmax(240px, 0.8fr) 1.6fr;
+    gap: 48px;
+  }
+}
+
+.test-output {
+  margin-top: 40px;
+  max-width: 560px;
+}
+
+.stack {
+  margin-top: 28px;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.stack .mono {
+  color: var(--ink);
+}
+
+/* ---- contact ---- */
+.contact {
+  padding: 84px 0 96px;
+  text-align: left;
+  background: radial-gradient(60% 70% at 12% 100%, color-mix(in srgb, var(--gold) 22%, transparent), transparent 70%),
+    radial-gradient(40% 50% at 95% 10%, color-mix(in srgb, var(--petal) 70%, transparent), transparent 70%), var(--paper-deep);
+}
+
+/* ---- footer ---- */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 28px var(--edge);
+  background: var(--ink);
+  color: color-mix(in srgb, var(--paper) 80%, transparent);
+  font-size: 0.92rem;
+}
+
+.foot p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

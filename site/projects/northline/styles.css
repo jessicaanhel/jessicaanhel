@@ -1,0 +1,596 @@
+/* Colours, fonts and shapes are taken from the Northline Digital source (src/index.css and the Tailwind classes). */
+:root {
+  --ink: #0b1220;
+  --navy: #101b33;
+  --navy-light: #1c2f52;
+  --accent: #3b6fed;
+  --accent-hover: #2563eb; /* Tailwind blue-600, the hover colour of the primary button */
+  --accent-light: #eaf0fe;
+  --surface: #f6f7fb;
+  --line: #e4e7ee;
+  --muted: #5b6472;
+  --white: #ffffff;
+  --radius-card: 16px; /* rounded-2xl */
+  --radius-small: 8px; /* rounded-lg */
+  --page: 1152px; /* max-w-6xl */
+  --gutter: 24px;
+  --display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --text: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--display);
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5.4vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.8vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+code {
+  font-size: 0.9em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--navy);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---- top bar: white, see-through, like the Northline navbar ---- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+.top-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+}
+
+.brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.top nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.section-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.section-link:hover {
+  color: var(--accent);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--accent-hover);
+}
+
+@media (max-width: 760px) {
+  .section-link {
+    display: none;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .nav-cta {
+    padding: 0 14px;
+  }
+}
+
+/* ---- buttons: fully round, like Button.tsx ---- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 1px 2px rgba(59, 111, 237, 0.2);
+}
+
+.button.primary:hover {
+  background: var(--accent-hover);
+}
+
+.button.ghost {
+  border: 1px solid var(--line);
+  color: var(--navy);
+  background: transparent;
+}
+
+.button.ghost:hover {
+  border-color: var(--navy);
+}
+
+/* ---- small labels ---- */
+.pill {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.section-note {
+  max-width: 42rem;
+  margin-top: 16px;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+/* ---- frames ---- */
+.browser {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: 0 20px 40px -20px rgba(16, 27, 51, 0.3);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+/* The three dots use the same soft red, amber and green as the mock window on the Northline home page. */
+.dots {
+  display: flex;
+  gap: 6px;
+  flex: none;
+}
+
+.dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fca5a5;
+}
+
+.dots i:nth-child(2) {
+  background: #fcd34d;
+}
+
+.dots i:nth-child(3) {
+  background: #86efac;
+}
+
+.address {
+  overflow: hidden;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.phone {
+  width: var(--w, 240px);
+  padding: 7px;
+  border-radius: 36px;
+  background: var(--navy);
+  box-shadow: 0 24px 48px -22px rgba(16, 27, 51, 0.55);
+}
+
+.phone img {
+  width: 100%;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 29px;
+  background: var(--white);
+}
+
+/* ---- hero ---- */
+.hero {
+  padding: 64px 0 80px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+.lead {
+  max-width: 36rem;
+  margin-top: 24px;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.hero-visual {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.hero-phone {
+  --w: 132px;
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: 104px 0 112px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .hero-visual {
+    padding-bottom: 56px;
+    margin-right: 40px;
+  }
+
+  .hero-phone {
+    --w: 170px;
+    right: -48px;
+  }
+}
+
+/* ---- facts ---- */
+.facts-band {
+  border-bottom: 1px solid var(--line);
+  padding: 32px 0;
+}
+
+.facts {
+  display: grid;
+  gap: 20px;
+}
+
+.facts div {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.facts strong {
+  min-width: 1.4ch;
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--navy);
+}
+
+@media (min-width: 760px) {
+  .facts {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ---- sections ---- */
+.section {
+  padding: 80px 0;
+}
+
+.section.surface {
+  background: var(--surface);
+}
+
+.shots {
+  display: grid;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.shot {
+  margin: 0;
+}
+
+.shot figcaption,
+.phone-card figcaption {
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.shot figcaption strong,
+.phone-card figcaption strong {
+  color: var(--navy);
+}
+
+@media (min-width: 820px) {
+  .shots {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 32px;
+  }
+}
+
+/* ---- phone strip ---- */
+.strip-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.strip-controls {
+  display: none;
+  gap: 8px;
+  flex: none;
+}
+
+@media (hover: hover) and (min-width: 760px) {
+  .strip-controls {
+    display: flex;
+  }
+}
+
+.round {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--navy);
+  font: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.round:hover {
+  border-color: var(--navy);
+}
+
+/* The strip starts at the page edge of the container, but can scroll to the screen edge. */
+.strip {
+  --edge: max(var(--gutter), calc((100vw - var(--page)) / 2 + var(--gutter)));
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--edge);
+  padding: 40px var(--edge) 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.phone-card {
+  flex: 0 0 auto;
+  width: 240px;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+/* ---- decisions ---- */
+.rows {
+  margin: 40px 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+
+.rows > div {
+  display: grid;
+  gap: 8px;
+  padding: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.rows > div:last-child {
+  border-bottom: 0;
+}
+
+.rows dt {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--navy);
+}
+
+.rows dd {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--muted);
+}
+
+@media (min-width: 820px) {
+  .rows > div {
+    grid-template-columns: minmax(220px, 0.8fr) 1.7fr;
+    gap: 40px;
+  }
+}
+
+.stack {
+  margin-top: 28px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* ---- call to action: the navy band that ends most Northline pages ---- */
+.cta {
+  padding: 80px 0;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta h2 {
+  color: var(--white);
+}
+
+.cta p {
+  max-width: 36rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---- footer ---- */
+.foot {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}
+
+.foot-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.foot p {
+  margin: 0;
+}
+
+.foot a:hover {
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

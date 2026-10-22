@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IT'S me... shop · jessicaanhel</title>
+    <meta
+      name="description"
+      content="An online shop for IT'S me..., a yoga and pilates apparel brand: catalogue, basket, favourites and accounts, built with Next.js."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23fbf6ef'/%3E%3Ccircle cx='9' cy='22' r='2.6' fill='%23e0687f'/%3E%3Ccircle cx='16' cy='22' r='2.6' fill='%23e0687f'/%3E%3Ccircle cx='23' cy='22' r='2.6' fill='%237c8f5d'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../../">← jessicaanhel</a>
+      <nav aria-label="Sections">
+        <a href="../../">All projects</a>
+        <a class="section-link" href="#inside">Inside</a>
+        <a class="section-link" href="#decisions">Decisions</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="logo">IT'S me<span>...</span></p>
+          <h1>An online shop for a yoga and pilates clothing brand.</h1>
+          <p class="lead">
+            I built the whole shop as one Next.js app: the catalogue, product pages, a basket, favourites and customer accounts. It uses the
+            brand's strawberry and matcha colours from the first screen to the checkout.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#inside">See the shop</a>
+            <a class="button" href="#contact">Want something like this?</a>
+          </div>
+        </div>
+        <div class="hero-shots" aria-hidden="true">
+          <div class="browser">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <img src="assets/shots/shop-desktop.jpg" width="1280" height="800" alt="" />
+          </div>
+          <div class="phone"><img src="assets/shots/cart-phone.jpg" width="780" height="1688" alt="" /></div>
+        </div>
+      </section>
+
+      <!-- facts -->
+      <section class="band" id="inside">
+        <div class="wrap two">
+          <div>
+            <h2>What is inside</h2>
+            <p>
+              <strong>For shoppers:</strong> a home page with bestsellers and new items, a shop with three categories and sorting by price,
+              product pages with colour and size, a basket and a list of favourites. All of this works without an account.
+            </p>
+            <p>
+              <strong>With an account:</strong> saved addresses, saved cards, order history and a checkout. The basket and favourites move
+              with you to any device after you sign in.
+            </p>
+          </div>
+          <ul class="facts">
+            <li><strong>16</strong> demo products in 3 categories</li>
+            <li><strong>0</strong> external services: the data lives in JSON files</li>
+            <li><strong>1</strong> app for the pages and the API</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- desktop tour -->
+      <section class="tour-section">
+        <div class="wrap">
+          <h2>A walk through the shop</h2>
+          <p class="section-note">
+            Screenshots from the running app with demo products. The product photos are placeholders for now, so here they show as soft colour
+            blocks.
+          </p>
+          <div class="desktop-grid">
+            <figure>
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/home-desktop.jpg" width="1280" height="800" alt="The home page with the headline Studio to citywalk, in style, and a pink Shop the collection button" />
+              </div>
+              <figcaption><strong>Home.</strong> A big first image, one line about the brand and one button into the shop.</figcaption>
+            </figure>
+            <figure>
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/home-desktop-lower.jpg" width="1280" height="800" alt="Three category tiles: Leggings, Tops, Accessories, and the Bestsellers row below" />
+              </div>
+              <figcaption><strong>Categories and bestsellers.</strong> Products are tagged in the data, and the home page picks the bestsellers and new items from the tags.</figcaption>
+            </figure>
+            <figure>
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/product-desktop.jpg" width="1280" height="800" alt="The product page of Matcha Bloom High-Waist Leggings with colour and size buttons and Add to basket" />
+              </div>
+              <figcaption><strong>Product page.</strong> Pick a colour and a size, add to the basket, or tap the heart to save it for later.</figcaption>
+            </figure>
+            <figure>
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/cart-desktop.jpg" width="1280" height="800" alt="The basket with two pairs of leggings, quantity buttons and a subtotal of 136 dollars" />
+              </div>
+              <figcaption><strong>Basket.</strong> Each line is one product in one colour and size. Change the amount or remove it, and the subtotal follows.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- phone strip -->
+      <section class="band phones">
+        <div class="wrap">
+          <h2>On a phone</h2>
+          <p class="section-note">Most people shop clothes on their phone, so every page works in one narrow column.</p>
+        </div>
+        <div class="strip" role="list" aria-label="The shop on a phone">
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/shop-phone.jpg" width="780" height="1688" alt="The shop on a phone: category chips, a sort menu and two products per row" /></div>
+            <figcaption>Two products per row, with the categories as chips.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/product-phone-details.jpg" width="780" height="1688" alt="Product details on a phone with colour and size buttons and a big Add to basket button" />
+            </div>
+            <figcaption>Big buttons for colour, size and the basket.</figcaption>
+          </figure>
+          <figure class="phone-card" role="listitem">
+            <div class="phone"><img loading="lazy" src="assets/shots/cart-phone.jpg" width="780" height="1688" alt="The basket on a phone with two items and the checkout button" /></div>
+            <figcaption>The basket. The green badge in the corner counts the items.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section class="decisions" id="decisions">
+        <div class="wrap">
+          <h2>Decisions I made</h2>
+          <dl class="rows">
+            <div>
+              <dt>Shop first, account later</dt>
+              <dd>
+                A guest can fill the basket and save favourites. They stay in the browser. When the guest signs in or signs up, the shop merges
+                them with what the account already has, so nothing gets lost.
+              </dd>
+            </div>
+            <div>
+              <dt>Same item, same line</dt>
+              <dd>
+                The basket treats product, colour and size together as one line. Adding the same leggings in the same size again raises the
+                amount; a different size is a new line. This rule has its own tests.
+              </dd>
+            </div>
+            <div>
+              <dt>JSON files instead of a database, for now</dt>
+              <dd>
+                Products, users and newsletter sign-ups live in JSON files, so the shop runs with no setup. Every read and write goes through
+                one small file of functions. Moving to a real database means rewriting only those functions, not the pages.
+              </dd>
+            </div>
+            <div>
+              <dt>Card details are never stored</dt>
+              <dd>
+                Saved cards are only a mock for now. The server keeps the brand and the last four digits and throws away the rest. The checkout
+                does not take real payments.
+              </dd>
+            </div>
+            <div>
+              <dt>Safe sign-in without extra services</dt>
+              <dd>Passwords are hashed with bcrypt. The session is an encrypted, httpOnly cookie, so page scripts cannot read it.</dd>
+            </div>
+            <div>
+              <dt>The brand lives in a few tokens</dt>
+              <dd>
+                Cream, matcha, strawberry and charcoal, Playfair for headings and Inter for text, all set once in the theme. Pink is for
+                actions, green is for the footer and the basket badge.
+              </dd>
+            </div>
+          </dl>
+          <p class="stack">Built with Next.js (App Router), TypeScript, Tailwind CSS, Zustand, iron-session and bcrypt. Tested with Vitest.</p>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <h2>Want something like this?</h2>
+          <p class="section-note">
+            A shop for your own brand, in your own colours, that works well on a phone. Write to me and tell me what you sell.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="mailto:ro.project2020@gmail.com?subject=An%20online%20shop%20like%20IT'S%20me">Write to me</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Made by jessicaanhel.</p>
+      <p><a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a></p>
+    </footer>
+  </body>
+</html>

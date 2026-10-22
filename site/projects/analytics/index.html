@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BrownBro analytics dashboard · jessicaanhel</title>
+    <meta
+      name="description"
+      content="A dark dashboard for crypto and currency data: smart money flows, markets, bank exchange rates and a watchlist, with a Flask backend that labels every number as live or mocked."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%230d1017'/%3E%3Cpath d='M6 17h5l3 7 4-16 3 9h5' fill='none' stroke='%235b7fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../../">← jessicaanhel</a>
+      <nav aria-label="Sections">
+        <a href="../../">All projects</a>
+        <a href="#inside">Inside</a>
+        <a href="#sources">Live or mocked</a>
+        <a href="#decisions">Decisions</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Analytics dashboard</p>
+          <h1>Crypto and currency data on one dark screen.</h1>
+          <p class="lead">
+            I built BrownBro, a dashboard that shows where big money moves in crypto, what the markets do, and what banks pay for
+            dollars, euros, zloty and hryvnia. Every number says if it is live or mocked.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#inside">See what is inside</a>
+            <a class="button" href="#contact">Ask about it</a>
+          </div>
+        </div>
+        <figure class="hero-shot">
+          <div class="browser">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="assets/shots/desktop-overview.jpg" width="1280" height="853" alt="The Overview page: four big numbers for money flows, institutional flows, BlackRock holdings, whale transfers and exchange flows" />
+          </div>
+        </figure>
+      </section>
+
+      <!-- what it is -->
+      <section class="band" id="inside">
+        <div class="wrap two">
+          <div>
+            <h2>What is inside</h2>
+            <p>
+              <strong>The frontend</strong> is a React app with a side menu and seven pages: Overview, Smart Money, Crypto, Fiat rates,
+              Personal PnL, Watchlist and Settings. The data pages have a time range switch and a filter for live or mocked data.
+            </p>
+            <p>
+              <strong>The backend</strong> is a small Flask API. It asks public APIs for prices and rates, reads bank exchange rates from
+              the banks' own pages, and keeps demo data for everything that has no real feed yet.
+            </p>
+          </div>
+          <ul class="facts">
+            <li><strong>7</strong> pages in the side menu</li>
+            <li><strong>3</strong> data states: live, partial and mocked</li>
+            <li><strong>3</strong> banks read for exchange rates</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- screens -->
+      <section class="screens">
+        <div class="wrap">
+          <h2>A look at the pages</h2>
+          <p class="section-note">Real screenshots from the running app. The prices on the Crypto page were live; the rest is demo data.</p>
+
+          <div class="gallery">
+            <figure class="shot wide">
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/desktop-smart-money.jpg" width="1280" height="800" alt="Smart Money by institution: BlackRock holdings today, a line chart of BTC and ETH holdings value, whale transfers and exchange flows" />
+              </div>
+              <figcaption><strong>Smart Money.</strong> Pick an institution and see its holdings today and over time. The line chart switches between this month, three months and a year.</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/desktop-crypto.jpg" width="1280" height="800" alt="Crypto Markets table with price, 24h change, volume, market cap and a smart flow score for BTC, ETH, SOL, PEPE and WIF" />
+              </div>
+              <figcaption><strong>Crypto.</strong> Price, 24h change, volume and market cap, with a score that reads as bullish, neutral or bearish.</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/desktop-watchlist.jpg" width="1280" height="800" alt="Watchlist and alerts: four conditions with Armed or Paused tags and Pause or Arm buttons" />
+              </div>
+              <figcaption><strong>Watchlist.</strong> Conditions like "price above $70,000". Arm or pause each one with one click.</figcaption>
+            </figure>
+            <figure class="shot">
+              <div class="browser">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img loading="lazy" src="assets/shots/desktop-settings.jpg" width="1280" height="800" alt="Settings: connected sources such as exchange APIs and open banking, with Connected or Connect tags" />
+              </div>
+              <figcaption><strong>Settings.</strong> The list of sources: exchanges and banks, connected or not.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- live or mocked demo -->
+      <section class="sources" id="sources">
+        <div class="wrap">
+          <h2>Live or mocked?</h2>
+          <p class="section-note">
+            A dashboard with fake numbers that look real is dangerous. So each card has a small tag, and the data pages have this filter. Try it.
+          </p>
+
+          <div class="demo">
+            <div class="demo-head">
+              <span class="demo-title">Markets</span>
+              <div class="segmented" role="group" aria-label="Filter by data source" id="source-filter">
+                <button type="button" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" data-filter="live" aria-pressed="false">Live</button>
+                <button type="button" data-filter="mock" aria-pressed="false">Mocked</button>
+              </div>
+            </div>
+            <ul class="demo-rows" id="source-rows">
+              <li data-source="live"><span class="asset">BTC</span><span class="what">Crypto prices</span><span class="tag live">Live</span></li>
+              <li data-source="partial"><span class="asset">BLK</span><span class="what">BlackRock holdings</span><span class="tag partial">Partial</span></li>
+              <li data-source="mock"><span class="asset">WHL</span><span class="what">Whale transfers</span><span class="tag mock">Mocked</span></li>
+              <li data-source="live"><span class="asset">FX</span><span class="what">Fiat pairs</span><span class="tag live">Live</span></li>
+              <li data-source="mock"><span class="asset">ETF</span><span class="what">Spot ETF flows</span><span class="tag mock">Mocked</span></li>
+            </ul>
+            <p class="demo-note" id="source-note">Partial cards always stay: they mix both kinds of data.</p>
+          </div>
+
+          <dl class="legend">
+            <div><dt><span class="tag live">Live</span></dt><dd>All the data on the card came from a real API just now.</dd></div>
+            <div><dt><span class="tag partial">Partial</span></dt><dd>Some rows are live, some fell back to demo data. For example, holdings are demo numbers, but the price is real.</dd></div>
+            <div><dt><span class="tag mock">Mocked</span></dt><dd>Demo data, because there is no feed yet or the API did not answer.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section class="band decisions" id="decisions">
+        <div class="wrap">
+          <h2>Decisions I made</h2>
+          <dl class="rows">
+            <div>
+              <dt>The source travels with the data</dt>
+              <dd>
+                Every API answer has an <code>X-Data-Source</code> header: live, partial or mock. The frontend reads it in one hook and shows the tag.
+                Nobody has to remember which card is fake.
+              </dd>
+            </div>
+            <div>
+              <dt>If an API fails, the page still works</dt>
+              <dd>
+                CoinGecko, Frankfurter and Binance are free and sometimes slow or blocked. When a call fails, the backend returns demo data
+                and says so. For futures it falls back row by row, so one bad symbol does not hide the others.
+              </dd>
+            </div>
+            <div>
+              <dt>A tiny cache, not a database</dt>
+              <dd>
+                Prices are kept for 60 seconds and fiat rates for six hours, in memory. That is enough to stay polite to free APIs, and there
+                is nothing to set up.
+              </dd>
+            </div>
+            <div>
+              <dt>Bank rates from the banks themselves</dt>
+              <dd>
+                Millennium and PrivatBank have public JSON. VeloBank only has a web page, so I read its table with BeautifulSoup. All three
+                answer in the same shape: buy and sell for USD, EUR, PLN and UAH.
+              </dd>
+            </div>
+            <div>
+              <dt>Charts I drew myself</dt>
+              <dd>
+                The holdings chart is plain SVG with a hover point, and the flow bars are simple blocks. For this many points a chart
+                library would be more code to fight than to write.
+              </dd>
+            </div>
+            <div>
+              <dt>One file for the look</dt>
+              <dd>
+                Colours and corner sizes live in one tokens file. The theme, the cards, the pills and the green/red for up and down all read
+                from it, so the dark style stays the same on every page.
+              </dd>
+            </div>
+          </dl>
+          <p class="stack">Built with React, TypeScript, Material UI and Emotion on the front, and Python, Flask, Requests and BeautifulSoup on the back.</p>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <h2>Want something like this?</h2>
+          <p class="section-note">
+            A dashboard for your own data: markets, rates, your company numbers, or a mix. Tell me what you want to see on one screen, and we
+            talk about how to get there.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="mailto:ro.project2020@gmail.com?subject=A%20dashboard%20like%20BrownBro">Write to me</a>
+            <a class="button" href="../../">See other projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Made by jessicaanhel.</p>
+      <p><a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a></p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

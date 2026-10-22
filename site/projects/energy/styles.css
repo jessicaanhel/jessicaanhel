@@ -1,0 +1,610 @@
+/* The colours, borders and radius come from the dashboard itself:
+   plain white, system font, 1px grey borders, 8px cards, and the chart's blue (wind) and orange (solar). */
+:root {
+  --ink: #000000;
+  --text: #222222;
+  --muted: #555555;
+  --line: #cccccc;
+  --line-soft: #dddddd;
+  --paper: #ffffff;
+  --grey: #f5f5f5;
+  --wind: #0000ff;
+  --wind-soft: rgba(0, 0, 255, 0.1);
+  --solar: #ffa500;
+  --solar-soft: rgba(255, 165, 0, 0.1);
+  --radius: 8px;
+  --gutter: 20px;
+  --page: 1120px;
+  --edge: max(var(--gutter), calc((100vw - var(--page)) / 2 + var(--gutter)));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 6.4vw, 4.2rem);
+  max-width: 18ch;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4.2vw, 2.7rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+}
+
+:focus-visible {
+  outline: 3px solid var(--wind);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---- top bar ---- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px var(--edge);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.top nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.top nav a {
+  padding: 7px 11px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.top nav a:hover {
+  color: var(--ink);
+  background: var(--grey);
+}
+
+.top nav .nav-cta {
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+@media (max-width: 620px) {
+  .top nav a:not(.nav-cta) {
+    display: none;
+  }
+}
+
+/* ---- buttons: the dashboard's bordered boxes, with blue as the main action ---- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.97rem;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--paper);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.button:hover {
+  background: var(--grey);
+  border-color: #999999;
+}
+
+.button.primary {
+  background: var(--wind);
+  border-color: var(--wind);
+  color: #ffffff;
+}
+
+.button.primary:hover {
+  background: #0000cc;
+}
+
+/* ---- hero ---- */
+.hero {
+  padding: 56px 0 72px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* The legend boxes copy Chart.js: a coloured outline with a light fill. */
+.key {
+  display: inline-block;
+  width: 30px;
+  height: 12px;
+  border: 3px solid var(--wind);
+  background: var(--wind-soft);
+}
+
+.key.solar {
+  margin-left: 6px;
+  border-color: var(--solar);
+  background: var(--solar-soft);
+}
+
+.lead {
+  margin-top: 22px;
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.hero-shot {
+  margin: 48px auto 0;
+}
+
+/* ---- browser frame ---- */
+.desktop-shot {
+  margin: 0;
+}
+
+.browser {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.35);
+}
+
+.browser .bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--grey);
+}
+
+.browser .bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.browser .address {
+  margin-left: 10px;
+  padding: 1px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desktop-shot figcaption {
+  margin-top: 14px;
+  max-width: 70ch;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+.desktop-shot figcaption strong {
+  color: var(--ink);
+}
+
+/* ---- bands ---- */
+.band {
+  padding: 72px 0;
+}
+
+.two {
+  display: grid;
+  gap: 36px;
+}
+
+.two p {
+  margin-top: 16px;
+}
+
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+/* Fact rows look like the summary cards of the dashboard. */
+.facts li {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+}
+
+.facts strong {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 820px) {
+  .two {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 64px;
+  }
+}
+
+.shots {
+  display: grid;
+  gap: 40px;
+  margin-top: 56px;
+}
+
+@media (min-width: 900px) {
+  .shots {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+
+/* ---- phones ---- */
+.phones {
+  display: grid;
+  gap: 28px;
+  margin-top: 64px;
+  justify-items: center;
+}
+
+.phones-copy {
+  justify-self: stretch;
+}
+
+.phones-copy p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.phone-card {
+  margin: 0;
+  width: 240px;
+}
+
+.phone {
+  padding: 7px;
+  border-radius: 36px;
+  background: #111111;
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.45);
+}
+
+.phone img {
+  width: 100%;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  border-radius: 29px;
+  background: var(--paper);
+}
+
+.phone-card figcaption {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .phones {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+/* ---- one hour demo ---- */
+.hour {
+  padding: 80px 0;
+  background: var(--grey);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.section-note {
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.hour-demo {
+  margin-top: 30px;
+}
+
+.park-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.park-picker button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.park-picker button:hover {
+  border-color: #999999;
+}
+
+.park-picker button[aria-pressed="true"] {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+  font-weight: 600;
+}
+
+.park-picker .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.hour-card {
+  margin-top: 18px;
+  padding: 20px;
+}
+
+.hour-title {
+  margin: 0 0 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.slots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.slots li {
+  display: grid;
+  grid-template-columns: 52px 1fr 64px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.93rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.slots .time {
+  color: var(--muted);
+}
+
+.slots .track {
+  height: 14px;
+  border-radius: 3px;
+  background: var(--grey);
+  overflow: hidden;
+}
+
+.slots .fill {
+  display: block;
+  height: 100%;
+  border-right: 3px solid var(--fill-line);
+  background: var(--fill-soft);
+}
+
+.slots .value {
+  text-align: right;
+}
+
+.results {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.result {
+  padding: 12px 14px;
+}
+
+.result h4 {
+  font-size: 0.95rem;
+}
+
+.result p {
+  margin: 8px 0 0;
+  font-size: 1.5rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.result p small {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+@media (min-width: 620px) {
+  .results {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---- decisions ---- */
+.decisions {
+  padding: 84px 0;
+}
+
+.rows {
+  margin: 36px 0 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.rows > div {
+  display: grid;
+  gap: 8px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.rows dt {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.rows dd {
+  margin: 0;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.stack {
+  margin-top: 28px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: none;
+}
+
+@media (min-width: 820px) {
+  .rows > div {
+    grid-template-columns: minmax(240px, 0.8fr) 1.6fr;
+    gap: 48px;
+  }
+}
+
+/* ---- contact ---- */
+.contact {
+  padding: 84px 0 96px;
+  border-top: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, var(--paper), var(--wind-soft));
+}
+
+/* ---- footer ---- */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 24px var(--edge);
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.foot p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>anhel-frontend-library · jessicaanhel</title>
+    <meta
+      name="description"
+      content="Three React components from a wedding website, made reusable: an envelope intro video, a scroll-driven photo stack and a program timeline. Plus a small tool for cutting frame images."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233d3a33'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23b08d4f' stroke-width='2.5'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../../">← jessicaanhel</a>
+      <nav aria-label="Sections">
+        <a href="../../">All projects</a>
+        <a class="in-page" href="#components">Components</a>
+        <a class="in-page" href="#decisions">Decisions</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="mono">v0.1.0</span> · React + TypeScript</p>
+          <h1>anhel-frontend-library</h1>
+          <p class="lead">
+            The best parts of our wedding website, as React components you can drop into another site. I took them out of the wedding code and
+            made them data-driven: you pass the photos, dates and texts as props.
+          </p>
+          <div class="install">
+            <div class="code-head"><span>terminal</span><button type="button" class="copy" data-copy="install-code">Copy</button></div>
+            <pre><code id="install-code">npm install ../anhel-frontend-library
+npm install react react-dom framer-motion</code></pre>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="#components">See the components</a>
+            <a class="button" href="#contact">Ask about it</a>
+          </div>
+        </div>
+        <div class="hero-phones" aria-hidden="true">
+          <div class="phone back"><img src="assets/shots/schedule-a.jpg" width="780" height="1688" alt="" /></div>
+          <div class="phone front"><img src="assets/shots/stack-slide.jpg" width="780" height="1688" alt="" /></div>
+        </div>
+      </section>
+
+      <!-- overview -->
+      <section class="band">
+        <div class="wrap two">
+          <div>
+            <h2>What is inside</h2>
+            <p>
+              Three components and one small Node tool. They are shipped as <strong>source</strong>, with no build step. Your app's bundler
+              compiles the TypeScript and the CSS modules, so it works the same in Next.js and in Vite.
+            </p>
+            <p>
+              Each component renders a plain <code>&lt;img&gt;</code> by default. Pass a <code>renderImage</code> function and it uses
+              <code>next/image</code> or anything else instead.
+            </p>
+          </div>
+          <ul class="facts">
+            <li><strong>3</strong> components, each with its own import path</li>
+            <li><strong>1</strong> image tool, with no npm packages</li>
+            <li><strong>6</strong> smoke tests that render every component on the server</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- components -->
+      <section class="components" id="components">
+        <div class="wrap">
+          <h2>The components</h2>
+          <p class="section-note">
+            The screenshots below are a small demo page I made for this case study, with the library's example frame, heart and rings. The
+            photos are placeholders.
+          </p>
+
+          <!-- VideoEntry -->
+          <article class="card" id="video-entry">
+            <div class="card-text">
+              <p class="tag"><span class="mono">anhel-frontend-library/video-entry</span></p>
+              <h3>VideoEntry</h3>
+              <p>
+                The first screen is a closed envelope. Tap it, and a video plays and the music starts. Halfway through, the envelope blurs away and
+                the page is already there underneath. A small floating button turns the music on and off.
+              </p>
+              <ul class="needs">
+                <li>React 18+</li>
+                <li>framer-motion 11+</li>
+                <li>client component</li>
+              </ul>
+              <div class="code">
+                <div class="code-head"><span>tsx</span><button type="button" class="copy" data-copy="code-video">Copy</button></div>
+                <pre><code id="code-video">&lt;VideoEntry
+  closedImageSrc="/images/envelope-closed.png"
+  videoSrc="/videos/entry.mp4"
+  audioSrc="/audio/music.mp3"
+  texts={{ tapToOpen: "Tap to open" }}
+  aspectRatio="1.132 / 1"
+  wrapper={SitePanel}
+&gt;
+  &lt;MyPage /&gt;
+&lt;/VideoEntry&gt;</code></pre>
+              </div>
+            </div>
+            <figure class="card-shots">
+              <div class="phone"><img loading="lazy" src="../wedding/assets/shots/site-1.jpg" width="780" height="1688" alt="The first screen of the wedding website, where the envelope intro is used" /></div>
+              <figcaption>On the wedding site, where it came from.</figcaption>
+            </figure>
+          </article>
+
+          <!-- FramedPhotoStack -->
+          <article class="card" id="framed-photo-stack">
+            <div class="card-text">
+              <p class="tag"><span class="mono">anhel-frontend-library/framed-photo-stack</span></p>
+              <h3>FramedPhotoStack</h3>
+              <p>
+                Photos in oval frames that slide over each other while you scroll. Each one gets a small tilt and a sideways shift, so the pile
+                looks like real prints on a table. The movement is pure CSS <code>position: sticky</code>, with no scroll listener.
+              </p>
+              <ul class="needs">
+                <li>React 18+</li>
+                <li>no client code</li>
+              </ul>
+              <div class="code">
+                <div class="code-head"><span>tsx</span><button type="button" class="copy" data-copy="code-stack">Copy</button></div>
+                <pre><code id="code-stack">&lt;FramedPhotoStack
+  photos={[
+    { src: "/images/story/1.jpg", alt: "First trip" },
+    { src: "/images/story/2.jpg", alt: "Engagement" },
+  ]}
+  frameSrc="/images/floral-frame.png"
+/&gt;</code></pre>
+              </div>
+            </div>
+            <div class="card-shots strip" role="list" aria-label="FramedPhotoStack while scrolling">
+              <figure role="listitem">
+                <div class="phone"><img loading="lazy" src="assets/shots/stack-top.jpg" width="780" height="1688" alt="The first photo in a floral oval frame, under a heading" /></div>
+                <figcaption>The first photo sticks near the top.</figcaption>
+              </figure>
+              <figure role="listitem">
+                <div class="phone"><img loading="lazy" src="assets/shots/stack-slide.jpg" width="780" height="1688" alt="A second framed photo sliding up over the first one" /></div>
+                <figcaption>The next one slides over it.</figcaption>
+              </figure>
+              <figure role="listitem">
+                <div class="phone"><img loading="lazy" src="assets/shots/stack-pile.jpg" width="780" height="1688" alt="Several tilted framed photos piled on top of each other" /></div>
+                <figcaption>Further down, a small pile.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <!-- ScheduleTimeline -->
+          <article class="card" id="schedule-timeline">
+            <div class="card-text">
+              <p class="tag"><span class="mono">anhel-frontend-library/schedule-timeline</span></p>
+              <h3>ScheduleTimeline</h3>
+              <p>
+                The program of the event. A thin golden thread grows down the page as you scroll, with the rings sliding along its end. Above it, a
+                sticky strip shows the days, and a gold heart moves to the day you are reading. Tap a number to jump to that day.
+              </p>
+              <ul class="needs">
+                <li>React 18+</li>
+                <li>framer-motion 11+</li>
+                <li>client component</li>
+              </ul>
+              <div class="code">
+                <div class="code-head"><span>tsx</span><button type="button" class="copy" data-copy="code-schedule">Copy</button></div>
+                <pre><code id="code-schedule">&lt;ScheduleTimeline
+  eyebrow="The program"
+  heading="How the day unfolds"
+  heartSrc="/images/heart-gold.png"
+  pendantSrc="/images/rings-gold.png"
+  edgeDays={{ before: 9, after: 14 }}
+  days={[
+    { date: "2027-06-11", items: [
+      { time: "18:00", title: "Welcome drinks",
+        description: "On the terrace" } ] },
+  ]}
+/&gt;</code></pre>
+              </div>
+            </div>
+            <div class="card-shots strip" role="list" aria-label="ScheduleTimeline while scrolling">
+              <figure role="listitem">
+                <div class="phone"><img loading="lazy" src="assets/shots/schedule-top.jpg" width="780" height="1688" alt="The program heading, a date strip with a gold heart on day 11, and the first items" /></div>
+                <figcaption>The heart starts on the first day.</figcaption>
+              </figure>
+              <figure role="listitem">
+                <div class="phone"><img loading="lazy" src="assets/shots/schedule-a.jpg" width="780" height="1688" alt="The heart moved to day 12, with the thread and the rings further down" /></div>
+                <figcaption>Scroll, and it moves to day 12. The item in the middle is fully visible, the rest stay faded.</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <!-- tool -->
+          <article class="card tool" id="cut-frame-interior">
+            <div class="card-text">
+              <p class="tag"><span class="mono">tools/cut-frame-interior.mjs</span></p>
+              <h3>A tool for the frames</h3>
+              <p>
+                A photo can only sit behind a frame if the inside of the frame is transparent. This script cuts the solid inside of a frame image
+                away and prints the <code>clip-path</code> that fits the hole. It is how the floral frame above was made. It needs Node 18+ and
+                ffmpeg, and no npm packages.
+              </p>
+            </div>
+            <div class="code">
+              <div class="code-head"><span>terminal</span><button type="button" class="copy" data-copy="code-tool">Copy</button></div>
+              <pre><code id="code-tool"><span class="c"># 1. Look at the colours first: fill, petals, outline</span>
+node tools/cut-frame-interior.mjs frame.png --sample "700,1000;650,400"
+
+<span class="c"># 2. Cut the inside out</span>
+node tools/cut-frame-interior.mjs frame.png frame-cut.png
+<span class="c">#   -> suggested clip-path: ellipse(45.1% 35.0% at 50.0% 49.2%)</span></code></pre>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- theming -->
+      <section class="band">
+        <div class="wrap two">
+          <div>
+            <h2>Fits into your site</h2>
+            <p>
+              Fonts and colours come from CSS custom properties, with fallbacks. Set them once on <code>:root</code> and the components follow
+              your design. The timeline also takes your own class names for its section and heading.
+            </p>
+          </div>
+          <div class="code">
+            <div class="code-head"><span>css</span></div>
+            <pre><code><span class="k">:root</span> {
+  --font-display: "Cormorant Garamond", serif;
+  --paper: <span class="v">#fbf5ea</span>;   <span class="c">/* behind the date strip */</span>
+  --accent: <span class="v">#b08d4f</span>;  <span class="c">/* times and eyebrow */</span>
+  --ink-soft: <span class="v">#837e70</span>;
+  --schedule-sticky-top: 3.6rem;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- decisions -->
+      <section class="decisions" id="decisions">
+        <div class="wrap">
+          <h2>Decisions I made</h2>
+          <dl class="rows">
+            <div>
+              <dt>Source, not a build</dt>
+              <dd>
+                The package exports the <code>.ts</code> files directly. There is no <code>dist</code> folder to keep in sync, and each app
+                compiles the components with its own settings. The README shows the two lines Next.js needs for this.
+              </dd>
+            </div>
+            <div>
+              <dt>The video and music never remount</dt>
+              <dd>
+                The <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> elements stay in the same place in the tree in every stage. If
+                React remounted them, the video would jump back to the start and the music would stop in the middle of the dissolve.
+              </dd>
+            </div>
+            <div>
+              <dt>Music starts from the tap</dt>
+              <dd>Browsers only play sound that starts from a user gesture. So the same tap that opens the envelope also starts the music.</dd>
+            </div>
+            <div>
+              <dt>The page keeps its state</dt>
+              <dd>
+                On the wedding site the page was mounted again when the dissolve finished. In the library it has one stable slot, so nothing on
+                the page is reset by the intro.
+              </dd>
+            </div>
+            <div>
+              <dt>Tilts that are the same every time</dt>
+              <dd>
+                The photo angles come from a small formula on the index, not from <code>Math.random</code>. The server and the browser draw the
+                same pile, and it does not reshuffle on every visit.
+              </dd>
+            </div>
+            <div>
+              <dt>A colour window, not a colour distance</dt>
+              <dd>
+                The frame tool first removed every pixel close to the cream fill. The pale pink petals were too close and got eaten. Now it checks
+                brightness and the gaps between red, green and blue, which keeps the petals and the leaves.
+              </dd>
+            </div>
+            <div>
+              <dt>Small guards for real data</dt>
+              <dd>An empty program renders nothing instead of crashing, and the timeline survives a change in the number of days.</dd>
+            </div>
+          </dl>
+
+          <div class="code test-output">
+            <div class="code-head"><span>npm run check</span></div>
+            <pre><code><span class="c">&gt; tsc --noEmit</span>
+<span class="c">&gt; node tests/smoke-render.mjs</span>
+VideoEntry: closed stage ok
+VideoEntry: no-audio variant ok
+FramedPhotoStack ok
+ScheduleTimeline ok
+ScheduleTimeline: alternation ok
+ScheduleTimeline: empty days ok</code></pre>
+          </div>
+          <p class="stack">
+            Built with <span class="mono">React</span>, <span class="mono">TypeScript</span>, <span class="mono">CSS modules</span> and
+            <span class="mono">framer-motion</span>. Tested with <span class="mono">esbuild</span> and server rendering. The frame tool uses
+            <span class="mono">Node</span> and <span class="mono">ffmpeg</span>.
+          </p>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <h2>Want something like this?</h2>
+          <p class="section-note">
+            A gentle intro, a story in photos, a program people can follow on their phone. If you want one of these for your event or your site,
+            write to me and tell me what you have in mind.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="mailto:ro.project2020@gmail.com?subject=Your%20React%20components">Write to me</a>
+            <a class="button" href="../wedding/">See the wedding site</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Made by jessicaanhel.</p>
+      <p><a href="mailto:ro.project2020@gmail.com">ro.project2020@gmail.com</a></p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

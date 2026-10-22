@@ -1,0 +1,513 @@
+/* Colours, fonts and the 2px radius are taken from Polina's own site,
+   so this page feels like the product it describes. */
+:root {
+  --ink: #1b171b;
+  --ink-soft: #4a4340;
+  --paper: #f6f1e7;
+  --paper-panel: #ebe1ce;
+  --wine: #7c2436;
+  --wine-strong: #5e1b29;
+  --brass: #8c6e33;
+  --line: rgba(27, 23, 27, 0.16);
+  --focus: #7c2436;
+  --frame: #1b171b;
+  /* The footer stays dark in both themes, like on Polina's site. */
+  --foot-bg: #1b171b;
+  --foot-text: #f6f1e7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #f1e9d8;
+    --ink-soft: #c4b9a5;
+    --paper: #16131a;
+    --paper-panel: #211c25;
+    --wine: #d1596d;
+    --wine-strong: #b84458;
+    --brass: #c9a76b;
+    --line: rgba(241, 233, 216, 0.16);
+    --focus: #d1596d;
+    --frame: #2c2630;
+    --foot-bg: #0f0d12;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ink: #f1e9d8;
+  --ink-soft: #c4b9a5;
+  --paper: #16131a;
+  --paper-panel: #211c25;
+  --wine: #d1596d;
+  --wine-strong: #b84458;
+  --brass: #c9a76b;
+  --line: rgba(241, 233, 216, 0.16);
+  --focus: #d1596d;
+  --frame: #2c2630;
+  --foot-bg: #0f0d12;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+figure {
+  margin: 0;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 5vw, 56px);
+}
+
+/* ---------- top bar ---------- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.top-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 14px;
+}
+
+.brand {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.top nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 0.95rem;
+}
+
+.top nav a:not(.btn) {
+  text-decoration: none;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.top nav a:not(.btn):hover {
+  color: var(--ink);
+  border-color: var(--wine);
+}
+
+@media (max-width: 720px) {
+  .hide-sm {
+    display: none;
+  }
+}
+
+/* ---------- buttons: square corners, like the source ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  font-size: 0.98rem;
+  border-radius: 2px;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: #f6f1e7;
+}
+
+.btn-primary:hover {
+  background: var(--wine-strong);
+  border-color: var(--wine-strong);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- frames ---------- */
+.browser {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--paper-panel);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -36px rgba(27, 23, 27, 0.45);
+}
+
+.browser .bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.browser .bar i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-soft);
+  opacity: 0.6;
+}
+
+.browser .url {
+  margin-left: 12px;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.phone {
+  width: var(--w, 240px);
+  padding: 6px;
+  border-radius: 34px;
+  background: var(--frame);
+  box-shadow: 0 24px 50px -24px rgba(27, 23, 27, 0.55);
+}
+
+.phone img {
+  width: 100%;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  padding-block: clamp(44px, 7vw, 88px) clamp(56px, 8vw, 96px);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(36px, 5vw, 64px);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 0.95fr 1.15fr;
+  }
+}
+
+.kicker {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  max-width: 15ch;
+}
+
+.accent {
+  color: var(--wine);
+}
+
+.lead {
+  margin-top: 24px;
+  max-width: 50ch;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+/* The phone sits over the corner of the browser shot. Extra bottom padding
+   makes room for the part of the phone that hangs below. */
+.hero-shot {
+  position: relative;
+  padding-bottom: 48px;
+  padding-right: 40px;
+}
+
+.hero-phone {
+  --w: clamp(110px, 26%, 190px);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-grid > * {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  .hero-grid > *:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ---------- section shell ---------- */
+section {
+  padding-block: clamp(44px, 7vw, 80px);
+  border-top: 1px solid var(--line);
+}
+
+.hero {
+  border-top: none;
+}
+
+.section-head {
+  max-width: 62ch;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.section-head h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  margin-top: 14px;
+  font-size: 1.02rem;
+  max-width: 56ch;
+}
+
+/* ---------- inside ---------- */
+.browser-figure + .browser-figure {
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+figcaption {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 64ch;
+}
+
+figcaption .mono {
+  color: var(--brass);
+  margin-right: 8px;
+}
+
+/* ---------- phones strip ---------- */
+.strip {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px max(clamp(16px, 5vw, 56px), calc((100vw - 1160px) / 2 + 56px)) 24px;
+  scrollbar-width: thin;
+}
+
+.phone-card {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 240px;
+}
+
+.phone-card figcaption {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .phone-card {
+    width: 220px;
+  }
+  .phone-card .phone {
+    --w: 220px;
+  }
+}
+
+/* ---------- themes ---------- */
+.theme-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 760px) {
+  .theme-pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.theme-pair figcaption {
+  font-size: 0.85rem;
+  color: var(--brass);
+}
+
+/* ---------- decisions: rows like the facets on Polina's page ---------- */
+.rows {
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(180px, 300px) 1fr;
+  gap: 24px;
+  padding-block: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.row-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.row-desc {
+  color: var(--ink-soft);
+  max-width: 58ch;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.stack {
+  margin-top: 30px;
+  color: var(--brass);
+  font-size: 0.9rem;
+}
+
+/* ---------- footer / contact ---------- */
+footer {
+  background: var(--foot-bg);
+  color: var(--foot-text);
+  padding-block: clamp(52px, 8vw, 88px);
+}
+
+footer h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  max-width: 16ch;
+}
+
+.foot-sub {
+  color: color-mix(in srgb, var(--foot-text) 68%, transparent);
+  margin-top: 16px;
+  max-width: 52ch;
+  font-size: 1.05rem;
+}
+
+.foot-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: 38px;
+}
+
+footer .btn-primary {
+  background: #7c2436;
+  border-color: #7c2436;
+}
+
+footer .btn-primary:hover {
+  background: #5e1b29;
+  border-color: #5e1b29;
+}
+
+.foot-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--foot-text) 68%, transparent);
+}
+
+.foot-meta a {
+  text-underline-offset: 3px;
+}
+
+footer a:focus-visible {
+  outline-color: #d1596d;
+}
